@@ -1,7 +1,21 @@
 // import express
 const express =  require("express");
 
-// creating constructor
+// import mysql 
+var mysql =  require('mysql2')
+
+var connection =  mysql.createConnection({
+    host :"localhost",
+    user : "root",
+    password : "nasy673586@@"
+})
+connection.connect(function (err) {
+    if (err) {
+        
+        throw err
+    }
+    console.log("connection success yea!");
+    // creating constructor
 var app  = express( )
 
 // import bosy-parser
@@ -47,6 +61,10 @@ var profile  = {
 
 app.get("/profile/:id",function(req,res){
     let currentProfile  = profile[req.params.id]
-    res.send(currentProfile);
+    res.send(currentProfile );
 });
     
+    
+})
+
+
